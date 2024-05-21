@@ -1,0 +1,106 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="460" Width="300" Background="Black" >
+
+    <Window.Resources>
+        <Style x:Key="ButtonCommand" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button" CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="#696969">
+                                <TextBlock  Text="{TemplateBinding Button.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="button" Property="Background" Value="#A9A9A9"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="ButtonNumber" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="button" CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="#A9A9A9">
+                                <TextBlock  Text="{TemplateBinding Button.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="button" Property="Background" Value="#696969"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    <Grid Name="GroupButton">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions >
+
+
+        <TextBox  Name="text" VerticalAlignment="Bottom" Grid.Row="0" Grid.ColumnSpan="4" Margin="0,0,0,60" Grid.RowSpan="3" Background="Black" Foreground="White" FontSize="24" FontFamily="Arial" FontWeight="Bold" BorderBrush="Black"/>
+        <Button  Grid.Row="2" Grid.Column="0" Margin="2,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20" Content="CE"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">C</Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">⌫</Button>
+        <Button Grid.Row="2" Grid.Column="3" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">/</Button>
+        <Button Grid.Row="3" Grid.Column="0" Margin="2,0,2,60" Grid.RowSpan="2" FontSize="20" Style="{StaticResource ButtonNumber}" >7</Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="0,0,2,60" Grid.RowSpan="2" FontSize="20" Style="{StaticResource ButtonNumber}">8</Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="0,0,2,60" Grid.RowSpan="2" FontSize="20" Style="{StaticResource ButtonNumber}">9</Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">x</Button>
+        <Button Grid.Row="4" Grid.Column="0" Margin="2,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonNumber}" FontSize="20">4</Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonNumber}" FontSize="20">5</Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonNumber}" FontSize="20">6</Button>
+        <Button Grid.Row="4" Grid.Column="3" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">-</Button>
+        <Button Grid.Row="5" Grid.Column="0" Margin="2,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonNumber}" FontSize="20">1</Button>
+        <Button Grid.Row="5" Grid.Column="1" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonNumber}" FontSize="20">2</Button>
+        <Button Grid.Row="5" Grid.Column="2" Margin="0,0,2,60" Grid.RowSpan="4" Style="{StaticResource ButtonNumber}" FontSize="20">3</Button>
+        <Button Grid.Row="5" Grid.Column="3" Margin="0,0,2,60" Grid.RowSpan="2" Style="{StaticResource ButtonCommand}" FontSize="20">+</Button>
+        <Button Grid.Row="6" Grid.Column="0" Margin="2,0,2,6" Style="{StaticResource ButtonNumber}" FontSize="20"></Button>
+        <Button Grid.Row="6" Grid.Column="1" Margin="0,0,2,6" Style="{StaticResource ButtonNumber}" FontSize="20">0</Button>
+        <Button Grid.Row="6" Grid.Column="2" Margin="0,0,2,6" Style="{StaticResource ButtonNumber}" FontSize="20">.</Button>
+        <Button Grid.Row="6" Grid.Column="3" Margin="0,0,2,6" Style="{StaticResource ButtonCommand}" FontSize="20">=</Button>
+
+        <ToggleButton Name="toggleButton" Grid.Column="0" Content="☰" FontSize="20" IsChecked="True" Click="ToggleButton_Click" Height="58" Grid.RowSpan="2" VerticalAlignment="Top"/>
+
+        <Grid x:Name="AdditionalOperationsColumn" Grid.Row ="1" Grid.Column="4" Visibility="Collapsed" Grid.RowSpan="6" Margin="0,93,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="4" Margin="0,0,2,6" Style="{StaticResource ButtonCommand}" FontSize="20" Click="SquareRootClicked"  >√</Button>
+            <Button Grid.Row="1" Grid.Column="4" Margin="0,0,2,6" Style="{StaticResource ButtonCommand}" FontSize="20" Click="LogarithmClicked" >log</Button>
+            <Button Grid.Row="2" Grid.Column="4" Margin="0,0,2,6" Style="{StaticResource ButtonCommand}" FontSize="20" Click="PowerClicked"  >^</Button>
+            <Button Grid.Row="3" Grid.Column="4" Margin="0,0,2,6"   Style="{StaticResource ButtonCommand}" FontSize="20" Click="PercentageClicked"  >%</Button>
+            <Button Grid.Row="4" Margin="0,0,2,6" Grid.Column="4"  Style="{StaticResource ButtonCommand}" FontSize="20" Click="InverseClicked"  >1/x</Button>
+        </Grid>
+    </Grid>
+</Window>
